@@ -1,0 +1,164 @@
+.HeaderBlock{
+    color: var(--primary-text-color);
+    font-family: var(--primary-font-family);
+
+    min-height: 230px;
+    background-size: cover;
+    background-image: url(../images/header/header-img-mob.png);
+    opacity: 0.9;
+
+    @include retina {
+        background-image: url(../images/header/header-img-mob-2x.png);
+    }
+    
+    @include tablet {
+        min-height: 216px;
+        background-image: url(../images/header/header-img-tablet.png);
+    
+        @include retina {
+            background-image: url(../images/header/header-img-tablet-2x.png);
+        }
+    }
+    
+    @include desktop {
+        background-image: url(../images/header/header-img.png);
+    
+        @include retina {
+            background-image: url(../images/header/header-img-2x.png);
+        }
+    }
+}
+
+.HeaderNav{
+    display: flex;
+    justify-content: baseline;
+    
+}
+
+.nav{
+        @include font(500, 12px, 1.16);
+        font-style: normal;
+        text-transform: uppercase;
+        
+}
+
+.NavList{
+    display: flex;
+    gap: 40px;
+    margin-left: auto;
+
+    @include tablet {
+        gap: 39px;;
+        }
+}
+
+.NavItem{
+    padding-top: 44px;
+    padding-bottom: 40px;
+    transition: color var(--transition-time) var(--timing-function);
+
+    @include tablet{
+        padding-top: 49px;
+        padding-bottom: 20px;
+    }
+}
+
+.NavItem:hover,
+.NavItem:focus{
+    color: var(--accent-color);
+    
+}
+
+.LogoArea{
+    display: flex;
+    margin-right: auto;
+    margin-bottom: 54px;
+    padding-top: 40px;
+
+    @include tablet{
+        gap: 8px;
+        margin-bottom: 46px;
+    }
+    @include desktop{
+        gap: 10px;
+        margin-bottom: 47px;
+    }
+}
+
+.logo{
+    font-family: var(--primary-font-family);
+    font-style: normal;
+    @include font(500, 30px, 1.17);
+    display: flex;
+    align-items: center;
+    text-align: center;
+    transition: color var(--transition-time) var(--timing-function);
+
+    @include tablet {
+        gap: 8px;
+        }
+    
+    @include desktop {
+        gap: 10px;
+    }
+}
+
+.logo:hover,
+.logo:focus{
+color: var(--accent-color);
+}
+
+.LogoName{
+    @media screen and (max-width: 767.98px) {
+        display: none;
+        }
+}
+
+.HeaderSeach{
+    display: flex;
+    justify-content: center;
+}
+
+.SearchForm{
+    height:20px;
+    position: relative;
+}
+
+.SearchFormInput{
+    min-width: 280px;
+    color: var(--primary-text-color);
+    border: none;
+    border-bottom: 0.5px solid var(--primary-text-color);
+    background: transparent;
+    outline: none;
+    font-size: 14px;
+    line-height: 1.14;
+    transition: border-color var(--transition-time) var(--timing-function);
+
+    @include tablet{
+        min-width: 336px;
+    }
+    @include desktop{
+        min-width: 394px;
+    }
+}
+.SearchBtn{
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    fill: transparent;
+    background: 0 0;
+    border: none;
+    padding: 3px;
+}
+
+
+.SearchFormInput::placeholder{
+    color: var(--primary-text-color);
+    @include font(400, 14px, 1.14);
+}
+
+.SearchFormInput:hover,
+.SearchFormInput:focus{
+    border-color: var(--accent-color);
+}

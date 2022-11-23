@@ -4,7 +4,7 @@
   "description": "",
   "homepage": "https://Nastyona22.github.io/filmoteka",
   "scripts": {
-    "start": "parcel src/*.html --port 9999",
+    "start": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /filmoteka/"
   },
   "repository": {
