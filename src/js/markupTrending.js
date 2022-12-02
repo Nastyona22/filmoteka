@@ -19,16 +19,17 @@ async function getTrending() {
   try {
     const { results } = await querytoapi.fetchTrending();
 
-    createMarkupTrending(results);
+    createMarkupGlideTrending(results);
+    createFilmCards(results);
       
   } catch (error) {
     console.log(error);
   }
 }
 
-function createMarkupTrending(results) {
+function createMarkupGlideTrending(results) {
     const markup = results.map(({ poster_path,title, release_date }) => {
-            let imageUrl = `https://image.tmdb.org/t/p/w500${poster_path}`;
+            let imageUrl = `https://image.tmdb.org/t/p/original${poster_path}`;
             return /*html*/ `
     <li class="glide__slide">
         <img
@@ -43,8 +44,34 @@ function createMarkupTrending(results) {
         })
         .join('');
 
-  refs.carousel.innerHTML = markup;
+  refs.glide.innerHTML = markup;
   glideTrending.mount();
 
 }
+
+function createFilmCards(results) {
+  const films = results.map(({ poster_path, title, genre_ids, release_date }) => {
+    let imageUrl = `https://image.tmdb.org/t/p/original${poster_path}`;
+    let realeseYear = release_date.slice(0, 4);
+    
+   
+    return /*html*/`<li class="film-trending__item">
+        <img class= "film-trending__img" src="${imageUrl}" alt="${title}" loading="lazy" width="280px"
+		    height ="402px"/>
+            <div class="film-info">
+                <p class="film-name">${title}</p>
+                <div class="film-description">
+                  <p class="film-description__genre">Drama, Action |</p>
+                  <p class="film-description__release">${realeseYear}</p>
+                </div>
+               
+            </div>
+        </a>`
+  }).join('');
+
+  refs.filmCards.innerHTML = films;
+
+
+}
+
 export { getTrending };

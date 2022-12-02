@@ -1,4 +1,5 @@
 export const refs = {
-    carousel: document.querySelector('.js-trending'),
+    glide: document.querySelector('.js-trending'),
+    filmCards: document.querySelector('.js-film-cards'),
   
 };
